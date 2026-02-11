@@ -1,0 +1,115 @@
+{
+  "name": "codesense",
+  "displayName": "CodeSense",
+  "description": "Understand any codebase: explain code, file roles and project structure.",
+  "version": "0.0.1",
+  "publisher": "alamdilshad87",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alamdilshad87/CodeSense"
+  },
+  "bugs": {
+    "url": "https://github.com/alamdilshad87/CodeSense/issues"
+  },
+  "homepage": "https://github.com/alamdilshad87/CodeSense#readme",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Education",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codesense.explainSelection",
+        "title": "CodeSense: Explain Selection"
+      },
+      {
+        "command": "codesense.explainFile",
+        "title": "CodeSense: Explain This File"
+      },
+      {
+        "command": "codesense.showProjectMap",
+        "title": "CodeSense: Show Project Map",
+        "icon": "$(type-hierarchy)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "codesense.showProjectMap",
+          "when": "resourceExtname =~ /\\.(m|c)?[jt]sx?$/",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "codesense.explainFile",
+          "when": "resourceExtname =~ /\\.(m|c)?[jt]sx?$/",
+          "group": "codesense"
+        },
+        {
+          "command": "codesense.showProjectMap",
+          "when": "explorerResourceIsFolder",
+          "group": "codesense"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "codesense.explainSelection",
+          "when": "editorHasSelection",
+          "group": "codesense@1"
+        },
+        {
+          "command": "codesense.explainFile",
+          "group": "codesense@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "CodeSense",
+      "properties": {
+        "codesense.llm.enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use an LLM for natural-language explanations. When off, CodeSense shows static analysis only."
+        },
+        "codesense.llm.baseUrl": {
+          "type": "string",
+          "default": "http://localhost:11434/v1",
+          "description": "OpenAI-compatible endpoint. Default points at a local Ollama server."
+        },
+        "codesense.llm.model": {
+          "type": "string",
+          "default": "llama3.1",
+          "description": "Model name to request from the endpoint."
+        },
+        "codesense.llm.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API key (leave empty for Ollama)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "tsc -p ./ && node --test \"out/test/**/*.test.js\"",
+    "package": "vsce package"
+  },
+  "dependencies": {
+    "typescript": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^4.1.1"
+  }
+}
