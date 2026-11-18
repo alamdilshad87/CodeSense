@@ -5,3 +5,4 @@ out/test/**
 tsconfig.json
 docs/**
 node_modules/@types/**
+CONTRIBUTING.md

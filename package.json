@@ -1,8 +1,13 @@
 {
   "name": "codesense-codebase-explorer",
   "displayName": "CodeSense: Codebase Explorer",
-  "description": "Understand any codebase: explain code, file roles and project structure.",
-  "version": "0.1.0",
+  "description": "Understand any codebase: interactive dependency map, circular dependency detection, and explanations for files and code.",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#0b0b10",
+    "theme": "dark"
+  },
+  "version": "0.1.1",
   "publisher": "alamdilshad87",
   "license": "MIT",
   "repository": {
@@ -17,6 +22,7 @@
     "vscode": "^1.85.0"
   },
   "categories": [
+    "Visualization",
     "Programming Languages",
     "Education",
     "Other"
@@ -111,5 +117,21 @@
     "@types/node": "^20.0.0",
     "@types/vscode": "^1.85.0",
     "@vscode/vsce": "^4.1.1"
-  }
+  },
+  "keywords": [
+    "code explanation",
+    "dependency graph",
+    "project map",
+    "codebase",
+    "architecture",
+    "circular dependencies",
+    "onboarding",
+    "typescript",
+    "javascript",
+    "angular",
+    "react",
+    "ast",
+    "visualization",
+    "ollama"
+  ]
 }
