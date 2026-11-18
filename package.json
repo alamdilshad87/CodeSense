@@ -1,8 +1,8 @@
 {
-  "name": "codesense",
-  "displayName": "CodeSense",
+  "name": "codesense-codebase-explorer",
+  "displayName": "CodeSense: Codebase Explorer",
   "description": "Understand any codebase: explain code, file roles and project structure.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "alamdilshad87",
   "license": "MIT",
   "repository": {
